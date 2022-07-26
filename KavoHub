@@ -1,0 +1,12 @@
+-- Versison 24
+
+if game.PlaceId == 155615604 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHubLatest/main/PrisonLife", true))()
+elseif game.PlaceId == 3956818381 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHubLatest/main/NinjaLegends", true))()
+elseif game.PlaceId == 3851622790 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/RobloxScript/main/BreakInStory", true))()
+elseif game.PlaceId == 4620170611 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/RobloxScript/main/BreakInStory", true))()
+end
+
