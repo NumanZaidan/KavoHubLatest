@@ -1,6 +1,7 @@
 # KavoHubLatest
 Kavo Hub
-LoadString : ```lua
+LoadString : 
+```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHubLatest/main/KavoHub", true))()
 ```
 
