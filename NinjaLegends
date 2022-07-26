@@ -1,0 +1,95 @@
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Ninja Legends", "Serpent")
+
+    -- MAIN
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+    MainSection:NewToggle("Auto Swing", "Make your player autoswing", function(v)
+        getgenv().autoswing = v
+        while true do
+            if not getgenv().autoswing then return end
+            for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if v:FindFirstChild("ninjitsuGain") then
+                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                    break
+                end
+            end
+                local A_1 = "swingKatana"
+                local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+                Event:FireServer(A_1)
+                wait(0.1)
+        end
+    end)
+    MainSection:NewToggle("Auto Sell", "Make your player autosell", function(v)
+        getgenv().autosell = v
+        while true do
+            if not getgenv().autosell then return end
+            game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            wait(0.1)
+            game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = CFrame.new(0,0,0)
+            wait(0.1)
+        end
+    end)
+    MainSection:NewButton("Unlock all islands", "Unlocks all islands", function()
+        local oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        for _,v in pairs(game:GetService("Workspace").islandUnlockParts:GetChildren()) do
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            wait(0.3)
+        end
+        wait(0.4)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcframe
+    end)
+    MainSection:NewToggle("Auto Buy all sword", "Auto Buys all sword", function(v)
+        getgenv().buyswords = v
+        while true do
+            if not getgenv().buyswords then return end
+            local A_1 = "buyAllSwords"
+            local A_2 = "Blazing Vortex Island"
+            local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+            Event:FireServer(A_1, A_2)
+            wait(0.5)
+        end
+    end)
+    MainSection:NewToggle("Auto Buy all belts", "Auto Buys all Belts", function(v)
+        getgenv().buybelts = v
+        while true do
+            if not getgenv().buybelts then return end
+            local A_1 = "buyAllBelts"
+            local A_2 = "Blazing Vortex Island"
+            local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+            Event:FireServer(A_1, A_2)
+            wait(0.5)
+        end
+    end)
+    
+    -- Players
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player")
+    PlayerSection:NewSlider("WalkSpeed", "Changes The WalkSpeed", 250, 16, function(v) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+    end)
+    PlayerSection:NewSlider("JumpPower", "Changes the JumpPower", 100, 50, function(v) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+    end)
+    PlayerSection:NewButton("Tp Tools", "Gives u Tp Tools!", function()
+        print("Clicked")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/Click%20TP%20Tool.lua"))()
+    end)
+    PlayerSection:NewButton("Fly (E)", "Fly Makes U Fly Press E TO Turn On/Off", function()
+        print("Clicked")
+        -- FE Fly (Push E)
+        loadstring(game:HttpGet(('https://pastebin.com/raw/q6S4AcxJ'),true))()
+    end)
+
+    -- Settings
+    local S = Window:NewTab("Settings")
+    local SSection = S:NewSection("Settings")
+    SSection:NewKeybind("Toggle UI", "Toggle The Ui On and off", Enum.KeyCode.LeftShift, function()
+        Library:ToggleUI()
+    end)
+
+    -- Credits
+    local Credits = Window:NewTab("Credits")
+    local CreditsSection = Credits:NewSection("Credits")
+    CreditsSection:NewLabel("Script: 'DarthVader#3277'")
+    CreditsSection:NewLabel("UI: 'xHeptc u fucktards'")
