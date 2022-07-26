@@ -1,4 +1,6 @@
 # KavoHubLatest
 Kavo Hub
-LoadString : 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHubLatest/main/PrisonLife", true))()
+LoadString : ```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHubLatest/main/KavoHub", true))()
+```
+
